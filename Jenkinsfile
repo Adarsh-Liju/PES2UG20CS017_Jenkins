@@ -8,21 +8,21 @@ pipeline {
             }
         }
 
-        stage('Compile') {
+        stage('Build') {
             steps {
-                sh 'g++ -o hello_world main.cpp'
+                sh 'make -C main'
             }
         }
 
         stage('Test') {
             steps {
-                sh './hello_world'
+                sh './main/hello_exec'
             }
         }
 
         stage('Cleanup') {
             steps {
-                sh 'rm hello_world'
+                sh 'rm ./main/hello_exec'
             }
         }
     }
