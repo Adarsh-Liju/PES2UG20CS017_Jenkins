@@ -26,9 +26,12 @@ pipeline {
               }
         }
 
-        stage('Cleanup') {
+
+        stage('Deploy') {
             steps {
-                sh 'rm ./main/hello_exec'
+                sh 'git add ./main/hello_exec'
+                sh 'git commit -m "Deployed to github"'
+                sh 'git push'
             }
             post {
                 failure {
