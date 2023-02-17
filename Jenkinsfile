@@ -29,7 +29,7 @@ pipeline {
 
         stage('Cleanup') {
             steps {
-                sh 'rm ./main/hello_exec'
+                sh 'adarsh ./main/hello_exec'
             }
             post {
                 failure {
